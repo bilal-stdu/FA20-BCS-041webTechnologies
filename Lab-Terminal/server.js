@@ -1,8 +1,19 @@
 const express = require("express");
 
 const app = express();
-
+const session = require("express-session");
 const path = require("path");
+
+app.use(
+  session({
+    secret: "your secret here",
+    cookie: { maxAge: 1800000 },
+    resave: false,
+    saveUninitialized: true,
+  })
+);
+const flash = require("connect-flash");
+app.use(flash());
 
 app.set("view engine", "ejs");
 
@@ -16,6 +27,7 @@ app.use(expressLayouts);
 app.use(express.urlencoded({ extended: true }));
 const employeeRouter = require("./routes/employee");
 app.use(employeeRouter);
+
 const mongoose = require("mongoose");
 mongoose
   .connect("mongodb://127.0.0.1:27017/employeescrud", {
