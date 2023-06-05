@@ -7,7 +7,6 @@ router.get("/employeelist", async (req, res) => {
   res.render("employeeList", {
     title: "Employees list",
     Employee,
-    //success_msg: req.flash("success_msg"),
   });
 });
 
