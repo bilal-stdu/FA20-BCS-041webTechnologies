@@ -1,52 +1,35 @@
 const express = require("express");
-let app = express();
-var expressLayouts = require("express-ejs-layouts");
-var cookieParser = require("cookie-parser");
-var session = require("express-session");
-app.use((req, res, next) => {
-  // res.send("site is down for maintenance");
-  console.log(req.url);
-  next();
-});
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(expressLayouts);
-app.use(cookieParser());
-app.use(
-  session({
-    secret: "My Top Secret String",
-    cookie: { maxAge: 60000 },
-    resave: true,
-    saveUninitialized: true,
-  })
-);
-app.use(require("./middlewares/checkSession"));
+
+const app = express();
+
+const path = require("path");
+
 app.set("view engine", "ejs");
-app.use("/", require("./routes/api/destinations"));
-app.use("/", require("./routes/api/restaurants"));
-app.use("/", require("./routes/deals"));
 
-app.use("/", require("./routes/auth"));
+app.use(express.static(path.join(__dirname, "public")));
+const expressLayouts = require("express-ejs-layouts");
 
-app.get("/cookie-test", (req, res) => {
-  let visit = req.cookies["page-visits"];
-  if (!visit) visit = 1;
-  else visit = Number(visit) + 1;
-  res.cookie("page-visits", visit);
-  return res.send("You Visited: " + visit + " Times");
-});
-app.get("/", (req, res) => {
-  res.render("homepage");
-});
-app.use((req, res, next) => {
-  res.status(404).send("Not Found");
-});
+app.use(express.json());
+app.use(expressLayouts);
+
+// Add this middleware before defining your routes
+app.use(express.urlencoded({ extended: true }));
+const employeeRouter = require("./routes/employee");
+app.use(employeeRouter);
+const mongoose = require("mongoose");
+mongoose
+  .connect("mongodb://127.0.0.1:27017/employeescrud", {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Connection to MongoDB created");
+  })
+  .catch((err) => {
+    console.log("Error Connecting");
+    console.log(err);
+  });
 
 app.listen(4000, () => {
   console.log("Server Started");
 });
-const mongoose = require("mongoose");
-mongoose
-  .connect("mongodb://localhost/travel-agency", { useNewUrlParser: true })
-  .then(() => console.log("Connected to Mongo ...."))
-  .catch((error) => console.log(error.message));

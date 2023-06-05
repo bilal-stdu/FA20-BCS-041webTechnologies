@@ -1,0 +1,41 @@
+<div>
+  <a href="/addEmployee" class="my-3" style="float: right">
+    <button class="btn btn-info">Add New Employee</button>
+  </a>
+</div>
+
+<table class="table table-responsive table-striped caption-top">
+  <caption>
+    <h3><%= title %></h3>
+  </caption>
+  <thead>
+    <tr>
+      <th scope="col">Sr No</th>
+      <th scope="col">Employee First Name</th>
+      <th scope="col">Employee Last Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Department</th>
+      <th scope="col">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (var i = 0; i < Employee.length; i++) { %>
+    <tr style="background-color: #f5f5f5">
+      <td scope="row"><%= i + 1 %></td>
+      <td scope="row"><%= Employee[i].firstName %></td>
+      <td scope="row"><%= Employee[i].lastName %></td>
+      <td scope="row"><%= Employee[i].email %></td>
+      <td scope="row"><%= Employee[i].department %></td>
+
+      <td>
+        <a href="/employee/<%= Employee[i]._id %>">
+          <button class="btn btn-info" style="margin-right: 10px">
+            Delete
+          </button>
+        </a>
+      </td>
+    </tr>
+
+    <% } %>
+  </tbody>
+</table>
