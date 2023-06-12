@@ -1,0 +1,198 @@
+<!-- first part -->
+<% if (success_msg.length > 0) { %>
+<div class="alert alert-success"><%= success_msg %></div>
+<% } %>
+
+<section id="f1">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div>
+          <h1>
+            <span>Electronic Products</span>
+          </h1>
+          <p>
+            Explore our wide range of electronic products at amazing prices.
+            From laptops and smartphones to TVs and headphones, we have
+            something for everyone.
+          </p>
+
+          <button class="btn button">Shop Now</button>
+        </div>
+      </div>
+      <div class="col-lg-6 col-md-12 col-sm-12">
+        <div class="img">
+          <img
+            src="./images/background.png"
+            class="img-fluid d-sm-block"
+            alt=""
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- second part -->
+
+<section id="questions" class="p-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Frequently Asked Questions</h2>
+    <div class="accordion accordion-flush" id="questions">
+      <!-- Item 1 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#question-one"
+          >
+            What is your return policy?
+          </button>
+        </h2>
+        <div
+          id="question-one"
+          class="accordion-collapse collapse"
+          data-bs-parent="#questions"
+        >
+          <div class="accordion-body">
+            Our return policy is 30 days. If 30 days have gone by since your
+            purchase, unfortunately we can’t offer you a refund or exchange.
+          </div>
+        </div>
+      </div>
+      <!-- Item 2 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#question-two"
+          >
+            How long does shipping take?
+          </button>
+        </h2>
+        <div
+          id="question-two"
+          class="accordion-collapse collapse"
+          data-bs-parent="#questions"
+        >
+          <div class="accordion-body">
+            Shipping times vary depending on your location and the shipping
+            method you choose at checkout. Typically, orders are delivered
+            within 3-7 business days.
+          </div>
+        </div>
+      </div>
+      <!-- Item 3 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#question-three"
+          >
+            Do you offer a warranty on your products?
+          </button>
+        </h2>
+        <div
+          id="question-three"
+          class="accordion-collapse collapse"
+          data-bs-parent="#questions"
+        >
+          <div class="accordion-body">
+            Yes, we offer a one-year warranty on all of our products. If you
+            experience any issues with your product within one year of purchase,
+            please contact us for assistance.
+          </div>
+        </div>
+      </div>
+      <!-- Item 4 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#question-four"
+          >
+            Can I track my order?
+          </button>
+        </h2>
+        <div
+          id="question-four"
+          class="accordion-collapse collapse"
+          data-bs-parent="#questions"
+        >
+          <div class="accordion-body">
+            Yes, once your order has been shipped, you will receive an email
+            with tracking information.
+          </div>
+        </div>
+      </div>
+      <!-- Item 5 -->
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button collapsed"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#question-five"
+          >
+            What payment methods do you accept?
+          </button>
+        </h2>
+        <div
+          id="question-five"
+          class="accordion-collapse collapse"
+          data-bs-parent="#questions"
+        >
+          <div class="accordion-body">
+            We accept all major credit cards, PayPal, and Apple Pay.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- third part -->
+<section class="mt-3" style="background-color: #a9a9a92b" id="f2">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-md-6 col-sm-12 py-3">
+        <i class="fa-solid fa-cart-shopping" style="font-size: 32px"></i>
+        <h3>Free Shipping</h3>
+        <p>On order over RS 2000</p>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 py-3">
+        <i class="fa-solid fa-rotate-left" style="font-size: 32px"></i>
+        <h3>Free Returns</h3>
+        <p>Within 30 days</p>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 py-3">
+        <i class="fa-solid fa-truck" style="font-size: 32px"></i>
+        <h3>Fast Delivery</h3>
+        <p>World Wide</p>
+      </div>
+      <div class="col-lg-3 col-md-6 col-sm-12 py-3">
+        <i class="fa-solid fa-thumbs-up" style="font-size: 32px"></i>
+        <h3>Big choice</h3>
+        <p>Of products</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- newsletter -->
+<div class="container mt-3">
+  <h3 class="text-center">
+    Subscribe To The Electronic Shop For Latest Upload
+  </h3>
+  <div class="input-group text-center">
+    <input type="text" class="form-control" placeholder="Enter Your Email.." />
+    <button class="btn button">SUBSCRIBE</button>
+  </div>
+</div>

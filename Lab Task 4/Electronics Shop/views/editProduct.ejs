@@ -1,0 +1,26 @@
+<div class="container mt-3">
+  <form action="/editProduct/<%= product._id %>" method="post">
+    <div class="mb-3">
+      <label for="name" class="col-form-label">product Name: </label>
+      <input
+        type="text"
+        name="name"
+        class="form-control"
+        id="name"
+        value="<%= product.name %>"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="Price" class="col-form-label">Price:</label>
+      <input
+        type="text"
+        name="Price"
+        class="form-control"
+        id="Price"
+        value="<%= product.Price %>"
+      />
+    </div>
+
+    <input type="submit" , class="btn button" />
+  </form>
+</div>
