@@ -1,0 +1,62 @@
+<% if(success_msg.length > 0) { %>
+<div class="alert alert-success" role="alert"><%= success_msg %></div>
+<% } %>
+
+<div>
+  <a href="/addProducts" class="my-3" style="float: right"
+    ><button class="btn button">Add New Products</button></a
+  >
+</div>
+
+<table class="table table-responsive table-striped caption-top">
+  <caption>
+    <h3 style="text-align: center; color: #000000"><%=title %></h3>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Sr No
+      </th>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Product Name
+      </th>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Price
+      </th>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (var i = 0; i < products.length; i++) { %>
+    <tr style="background-color: #f5f5f5">
+      <td scope="row"><%= i+1 %></td>
+      <td scope="row"><%=products[i].name %></td>
+      <td>Rs <%=products[i].Price %></td>
+      <td>
+        <a href="/editProduct/<%= products[i]._id %>">
+          <button class="btn button" style="margin-right: 10px">Edit</button>
+        </a>
+
+        <a href="/products/<%= products[i]._id %>">
+          <button class="btn button" style="margin-right: 10px">Delete</button>
+        </a>
+      </td>
+    </tr>
+
+    <% } %>
+  </tbody>
+</table>
