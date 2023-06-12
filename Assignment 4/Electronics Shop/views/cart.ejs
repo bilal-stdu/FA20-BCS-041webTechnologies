@@ -1,0 +1,97 @@
+<% if(success_msg.length > 0) { %>
+<div class="alert alert-success" role="alert"><%= success_msg %></div>
+<% } %> <% if (cart.length === 0) { %>
+<h1 class="text-center">Your cart is empty</h1>
+<% } else { %>
+
+<table class="table table-responsive table-striped caption-top">
+  <caption>
+    <h3 style="text-align: center; color: #000000"><%=title %></h3>
+  </caption>
+  <thead>
+    <tr>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Product Name
+      </th>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Price
+      </th>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Quantity
+      </th>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Update Cart
+      </th>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Subtotal
+      </th>
+      <th
+        scope="col"
+        style="background-color: #000000; color: white; font-weight: bold"
+      >
+        Actions
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% for (var i = 0; i < cart.length; i++) { %>
+    <tr>
+      <td scope="row"><%= cart[i].name %></td>
+      <td>Rs <%= cart[i].Price %></td>
+      <td>
+        <form action="/cart/update/<%= cart[i]._id %>" method="POST">
+          <input
+            type="number"
+            class="form-control"
+            name="newQuantity"
+            value="<%= cart[i].quantity %>"
+            min="1"
+          />
+          <td>
+            <input type="submit" value="Update" class="btn button" />
+          </td>
+        </form>
+      </td>
+
+      <td class="subtotal">Rs <%= cart[i].Price * cart[i].quantity %></td>
+
+      <td>
+        <a href="/cart/remove/<%= cart[i]._id %>">
+          <button class="btn button">Remove</button></a
+        >
+      </td>
+    </tr>
+    <% } %>
+  </tbody>
+  <tfoot>
+    <tr>
+      <td colspan="4" class="text-end">
+        <h5>
+          Total: RS: <% let total = 0; %> <% for (let i = 0; i < cart.length;
+          i++) { %> <% total += cart[i].Price * cart[i].quantity; %> <% } %> <%=
+          total %>
+        </h5>
+      </td>
+      <td>
+        <button class="btn button">Proceed to Checkout</button>
+      </td>
+    </tr>
+  </tfoot>
+</table>
+
+<% } %>

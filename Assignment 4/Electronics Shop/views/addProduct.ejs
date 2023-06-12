@@ -1,0 +1,19 @@
+<% if (typeof errors != 'undefined') { %> <% for (let i = 0; i < errors.length;
+i++) { %>
+<div class="alert alert-danger"><%= errors[i].msg %></div>
+<% } %> <% } %>
+
+<div class="container mt-3">
+  <form action="/addProducts" method="post">
+    <div class="mb-3">
+      <label for="name" class="col-form-label">Product Name: </label>
+      <input type="text" name="name" class="form-control" id="name" />
+    </div>
+    <div class="mb-3">
+      <label for="Price" class="col-form-label">Price:</label>
+      <input type="text" name="Price" class="form-control" id="Price" />
+    </div>
+
+    <input type="submit" , class="btn button" />
+  </form>
+</div>
