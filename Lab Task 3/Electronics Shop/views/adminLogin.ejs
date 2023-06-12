@@ -1,0 +1,34 @@
+<% if (success_msg.length > 0) { %>
+<div class="alert alert-success"><%= success_msg %></div>
+<% } %> <% if (danger_msg.length > 0) { %>
+<div class="alert alert-danger"><%= danger_msg %></div>
+<% } %>
+
+<h1 class="text-center"><%=pageTitle%></h1>
+<div class="container mt-3">
+  <form action="/adminLogin" , method="post">
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Email address</label>
+      <input
+        type="email"
+        value="fa20-bcs-041@cuilahore.edu.pk"
+        name="email"
+        class="form-control"
+        id="exampleInputEmail1"
+        aria-describedby="emailHelp"
+      />
+    </div>
+    <div class="mb-3">
+      <label for="exampleInputPassword1" class="form-label">Password</label>
+      <input
+        type="password"
+        name="password"
+        value="abc"
+        class="form-control"
+        id="exampleInputPassword1"
+      />
+    </div>
+
+    <input type="submit" class="btn button" value="login" />
+  </form>
+</div>
